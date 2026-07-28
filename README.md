@@ -1,4 +1,4 @@
-# 📊 Análise de Bike Stores  — Contoso Retail DW
+# 📊 Análise de Bike Stores 
 
 ![SQL Server](https://img.shields.io/badge/SQL%20Server-2019-CC2927?style=for-the-badge&logo=microsoft-sql-server&logoColor=white)
 ![Power BI](https://img.shields.io/badge/Power%20BI-F2C811?style=for-the-badge&logo=power-bi&logoColor=black)
