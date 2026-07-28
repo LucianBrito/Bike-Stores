@@ -1,0 +1,9 @@
+﻿Production;Brand
+Production;Category
+Production;Product
+Production;Stock
+Sales;Customer
+Sales;Employee
+Sales;Order
+Sales;OrderItem
+Sales;Store
