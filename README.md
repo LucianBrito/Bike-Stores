@@ -137,3 +137,62 @@ O que responde: Como o faturamento evolui mês a mês em cada canal? Existe sazo
 Qual foi o melhor e o pior mês de cada canal?
 
 <a href="https://github.com/LucianBrito/Bike-Stores/blob/main/SQL/Varia%C3%A7%C3%A3o%20Mensal.sql" target="_blank">Clique aqui</a> e acesse o script SQL no GitHub 
+
+### Verificação da Qualidade dos Dados
+
+Nesta etapa, o objetivo foi avaliar a qualidade dos dados na tabela FactInternetSales e nas tabelas relacionadas. Isso inclui identificar possíveis inconsistências, como valores nulos, duplicados ou outras anomalias que possam impactar negativamente as análises.
+
+### Identificar Valores Nulos em Chaves Estrangeiras
+Os valores nulos em chaves estrangeiras indicam que determinados registros na tabela fato não possuem correspondência nas dimensões relacionadas, o que pode causar problemas nas análises, como métricas distorcidas ou falhas em segmentações. Para verificar, utilizamos as seguintes consultas:
+
+### Verificação de nulos na tabela Sales.Order
+
+<a href="" target="_blank">Clique aqui</a> e acesse o script SQL no GitHub 
+
+A query contabiliza o total de pedidos e a quantidade de registros com valor preenchido em EmployeeID e StoreID. A diferença entre esses valores indica quantos pedidos estão sem vendedor ou sem loja associados.
+A query lista os pedidos com chave estrangeira nula, exibindo o identificador, a data e indicadores de qual campo está ausente. Os resultados são ordenados por data, do mais recente para o mais antigo.
+
+### Verificação de nulos na tabela Sales.OrderItem
+
+<a href="" target="_blank">Clique aqui</a> e acesse o script SQL no GitHub 
+
+Mesma lógica aplicada à tabela de itens, verificando as chaves OrderID e ProductID. O resultado indica quantos itens estão sem pedido ou sem produto associados.
+A query lista os itens com chave estrangeira nula, exibindo identificador, pedido, produto, quantidade e indicadores de qual campo está ausente. O campo identificador correto desta tabela é ItemID.
+
+### Verificação de integridade referencial (registros órfãos)
+
+<a href="" target="_blank">Clique aqui</a> e acesse o script SQL no GitHub 
+
+As queries identificam registros em que a chave estrangeira possui valor, mas esse valor não existe na tabela de destino. A técnica utiliza LEFT JOIN com filtro que descarta chaves nulas e mantém apenas os casos sem correspondência. São verificadas três situações: EmployeeID inexistente em Employee, StoreID inexistente em Store e ProductID inexistente em Product.
+
+### Importação dos Dados
+
+No Power BI, foi utilizada a opção de conexão ao banco de dados SQL Server, fornecendo o endereço do servidor e o nome do banco de dados BikeStores
+
+Foram selecionadas as seguintes tabelas para o projeto:
+
+<a href="" target="_blank">Clique aqui</a> e acesse o script SQL no GitHub 
+
+Apenas as tabelas essenciais para os relatórios foram importadas, buscando sempre um bom desempenho do modelo de dados.
+
+### Transformações com Power Query
+
+Durante a importação, utilizou-se o Power Query para aplicar algumas transformações adicionais:
+
+* Remoção de Colunas Desnecessárias: Foram eliminadas colunas que não eram relevantes para a análise, como campos de auditoria e metadados internos, simplificando o modelo de dados
+* Verificação e Ajuste de Tipos de Dados: Os tipos de dados das colunas foram revisados e ajustados para garantir consistência nas análises, com atenção especial aos campos de data, valores monetários e identificadores.
+
+### Star Schema
+
+O schema segue um modelo estrela (star schema) com duas tabelas fato no centro e as dimensões ao redor. Aqui está a estrutura:
+
+<a href="" target="_blank">Clique aqui</a> e acesse o script SQL no GitHub 
+
+
+
+
+
+
+<a href="" target="_blank">Clique aqui</a> e acesse o script SQL no GitHub 
+
+
