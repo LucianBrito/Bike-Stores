@@ -230,8 +230,7 @@ Para proporcionar uma visão detalhada e estratégica do negócio, foram desenvo
 
   <a href="https://github.com/LucianBrito/Bike-Stores/blob/main/Prints/Dash%20Detal.png?raw=true" target="_blank">Clique aqui</a> e acesse o script SQL no GitHub
 
-  📝 Tooltip
-Foi criada uma página de tooltip personalizada no Power BI, configurada como report page tooltip. Essa página é exibida automaticamente ao passar o mouse sobre determinados visuais do relatório, fornecendo informações complementares e detalhadas sem a necessidade de navegação entre páginas.
+* Tooltip: Foi criada uma página de tooltip personalizada no Power BI, configurada como report page tooltip. Essa página é exibida automaticamente ao passar o mouse sobre determinados visuais do relatório, fornecendo informações complementares e detalhadas sem a necessidade de navegação entre páginas.
 
 A página de tooltip foi dimensionada em formato reduzido (padrão Tooltip do Power BI) e contém visuais resumidos — como cartões e mini gráficos — que exibem métricas relevantes ao contexto do dado apontado (ex: valores de vendas, comparativos de período ou detalhamento por categoria), enriquecendo a experiência de análise do usuário de forma contextual e interativa.
 
