@@ -6,13 +6,13 @@
 ![Star Schema](https://img.shields.io/badge/Modelagem-Star%20Schema-6C5CE7?style=for-the-badge)
 ![Status](https://img.shields.io/badge/Status-Concluído-27AE60?style=for-the-badge)
 
-## 🧩 Descrição do Problema de Negócio
+#### 🧩 Descrição do Problema de Negócio
 
 "Acabei de receber uma reclamação do time de vendas dizendo que estamos perdendo
 pedidos por falta de estoque. Quero saber quais produtos estão com estoque crítico mas
 continuam aparecendo como disponíveis para o cliente, "Tenho 3 lojas e quero entender qual performa melhor. Não é só faturamento — quero ver prazo de entrega e base de clientes também. Isso vai ajudar a decidir onde abrir a próxima loja."
 
-## Descrição Geral do Banco de Dados
+### Descrição Geral do Banco de Dados
 
 #### O que é o BikeStores?
 O BikeStores é um banco de dados relacional de exemplo, projetado para simular a operação de uma rede de lojas de bicicletas. Ele armazena informações sobre produtos, clientes, funcionários, pedidos, lojas e estoque, permitindo análises de vendas, gestão de inventário e avaliação de desempenho entre unidades.
