@@ -186,13 +186,91 @@ Durante a importação, utilizou-se o Power Query para aplicar algumas transform
 
 O schema segue um modelo estrela (star schema) com duas tabelas fato no centro e as dimensões ao redor. Aqui está a estrutura:
 
-<a href="" target="_blank">Clique aqui</a> e acesse o script SQL no GitHub 
+<a href="https://github.com/LucianBrito/Bike-Stores/blob/main/Prints/Schema.png?raw=true" target="_blank">Clique aqui</a> e acesse o script SQL no GitHub 
 
+### Medidas
+As medidas foram organizadas em Tabela (Medida) dentro do Power BI, facilitando a navegação e manutenção do modelo. Segue a descrição de cada uma:
 
+📊 KPIs
+* Total Vendas: Soma o valor total das vendas realizadas, considerando preço e quantidade de itens vendidos. Representa a receita bruta gerada pela empresa.
+* Total Pedidos: Contagem distinta de pedidos (order_id) realizados, indicando o volume de transações no período analisado.
+* Ticket Médio: Valor médio gasto por pedido, calculado pela divisão do Total de Vendas pelo Total de Pedidos. Mede o valor médio transacionado em cada compra.
 
+🕒 Tempo
+* Vendas Ano Anterior: Calcula o Total de Vendas referente ao mesmo período do ano anterior, permitindo comparações históricas.
+* Variação YoY %: Percentual de variação das vendas em relação ao mesmo período do ano anterior (Year over Year), evidenciando crescimento ou queda no desempenho.
+* Vendas YTD: Soma acumulada das vendas desde o início do ano até a data atual (Year to Date), permitindo acompanhar a evolução do desempenho no ano corrente.
 
+🛍️ Produto
+* Produtos Distintos: Contagem de produtos únicos (product_id) vendidos, indicando a diversidade do mix de produtos comercializados.
+* % Participação Produto: Percentual de participação de cada produto sobre o total de vendas, útil para identificar os itens mais relevantes para a receita.
+  
+👥 Cliente
+* Vendas por Cliente: Total de vendas segmentado por cliente, permitindo identificar os clientes que mais contribuem para a receita.
+  
+🏪 Vendedor
+* Rank Funcionário: Classificação (ranking) dos funcionários com base no volume de vendas realizadas, destacando os melhores desempenhos individuais.
+* Rank Loja: Classificação (ranking) das lojas com base no total de vendas, permitindo comparar o desempenho entre as unidades (Baldwin Bikes, Santa Cruz Bikes e Rowlett Bikes), Segue Abaixo a Tabela de Medidas
 
+  <a href="https://github.com/LucianBrito/Bike-Stores/blob/main/Prints/Tabela%20de%20Medidas%201.png?raw=true" target="_blank">Clique aqui</a> e acesse o script SQL no GitHub 
 
-<a href="" target="_blank">Clique aqui</a> e acesse o script SQL no GitHub 
+### Construção do Relatório — Bike Stores
+
+Para proporcionar uma visão detalhada e estratégica do negócio, foram desenvolvidas três páginas principais de visualização no Power BI:
+
+* Visão Executiva: Oferece uma análise financeira abrangente, incluindo indicadores temporais e segmentações para acompanhar o desempenho do negócio ao longo do tempo
+
+<a href="https://github.com/LucianBrito/Bike-Stores/blob/main/Prints/Dash%20Vis%C3%A3o.png?raw=true" target="_blank">Clique aqui</a> e acesse o script SQL no GitHub 
+
+* Análise de Vendas: Apresenta uma análise detalhada do desempenho de produtos, subcategorias e marcas, permitindo identificar os itens mais rentáveis e relevantes para a empresa.
+
+<a href="https://github.com/LucianBrito/Bike-Stores/blob/main/Prints/Dash%20Vendas.png?raw=true" target="_blank">Clique aqui</a> e acesse o script SQL no GitHub 
+
+* Detalhamento: Foca no detalhamento por loja (Baldwin Bikes, Santa Cruz Bikes e Rowlett Bikes) e demais dimensões, proporcionando insights granulares para auxiliar na tomada de decisões estratégicas.
+
+  <a href="https://github.com/LucianBrito/Bike-Stores/blob/main/Prints/Dash%20Detal.png?raw=true" target="_blank">Clique aqui</a> e acesse o script SQL no GitHub
+
+  📝 Tooltip
+Foi criada uma página de tooltip personalizada no Power BI, configurada como report page tooltip. Essa página é exibida automaticamente ao passar o mouse sobre determinados visuais do relatório, fornecendo informações complementares e detalhadas sem a necessidade de navegação entre páginas.
+
+A página de tooltip foi dimensionada em formato reduzido (padrão Tooltip do Power BI) e contém visuais resumidos — como cartões e mini gráficos — que exibem métricas relevantes ao contexto do dado apontado (ex: valores de vendas, comparativos de período ou detalhamento por categoria), enriquecendo a experiência de análise do usuário de forma contextual e interativa.
+
+<a href="https://github.com/LucianBrito/Bike-Stores/blob/main/Prints/TT.png?raw=true" target="_blank">Clique aqui</a> e acesse o script SQL no GitHub 
+
+### Insight importante do Relatório
+
+Concentração extrema de receita em poucos produtos e uma loja.
+* Mountain Bikes sozinha responde por 36,67% do faturamento (R$ 340 Mi), mais que Road + Cruisers + Electric juntas.
+* A loja Baldwin Bikes gera 0,64 Bi de um total de 0,93 Bi (~69% do faturamento), enquanto Santa Cruz (0,19 Bi) e Rowlett (0,10 Bi) dividem o restante.
+* A marca Trek domina com 0,55 Bi (quase 60% do total), e os 10 produtos mais vendidos são, em sua maioria, modelos Trek.
+  
+### Transformando o número em conclusão de negócio
+   
+"O negócio depende fortemente de um mix restrito: uma categoria (Mountain Bikes), uma marca (Trek) e uma loja (Baldwin) sustentam a maior parte da receita. Isso indica alta eficiência nesses pilares, mas também alta exposição a risco de concentração — qualquer disrupção em fornecimento, demanda ou operação nesses pontos específicos impacta desproporcionalmente o resultado global."
+
+### Recomendação ao gestor
+
+* Diversificar o mix ativamente: investir em marketing/promoção para categorias sub-representadas (Children Bikes 4%, Comfort Bicycles 5,18%) para reduzir dependência de Mountain Bikes.
+* Replicar o modelo Baldwin: investigar o que torna Baldwin Bikes tão superior (localização, equipe, sortimento) e aplicar boas práticas nas outras duas lojas.
+* Negociar com Trek: dado o peso da marca, negociar melhores condições comerciais (volume, exclusividade, prazos) já que ela é um fornecedor crítico.
+* Atenção à queda de vendas ao longo do tempo: o gráfico "Vendas ao Longo do Tempo" mostra tendência de queda de ~94 Mi para ~64 Mi — isso merece prioridade de investigação antes de qualquer expansão de portfólio.
+  
+  ### Algo surpreendente ou contra-intuitivo
+  
+* Tendência de queda consistente nas vendas totais (94 Mi → 64 Mi) é contra-intuitiva se o negócio está com bom ticket médio (R$ 7.351) e boa base de clientes ativos (1.445) — sugere que o problema não é preço nem churn de cliente, e sim volume/frequência de pedidos ou possivelmente sazonalidade não tratada.
+* Baldwin Bikes cresce enquanto Santa Cruz e Rowlett têm performance modesta e relativamente estável (sem crescimento) — indica que o crescimento da empresa está 100% concentrado em uma única unidade, o que é um sinal de alerta estratégico (dependência de um único ponto de venda).
+* A clientela "Top Clientes" tem tickets médios muito altos (R$ 8-11 mil) comparado ao ticket médio geral (R$ 7,35 mil) — pode indicar que uma pequena base de clientes VIP sustenta desproporcionalmente a receita.
+
+  ### Perguntas de acompanhamento
+   
+* A queda nas vendas totais ao longo do tempo é sazonal (ex: baixa em certos meses) ou é uma tendência estrutural de declínio?
+O que Baldwin Bikes está fazendo de diferente operacionalmente para performar tão acima das outras duas lojas?
+* Qual é o Customer Lifetime Value (CLV) dos "Top Clientes" e quanto de receita futura depende de reter esse grupo pequeno de clientes de alto ticket?
+* Se retirarmos Mountain Bikes e Trek da equação, qual seria a saúde real do negócio nas outras categorias/marcas?
+* Existe correlação entre desempenho por funcionário (Boyer e Daniel dominam) e a performance da loja Baldwin — ou seja, o sucesso é da loja ou dos vendedores específicos?
+
+  👤 ** Luciano Conceição de Brito **
+🔗 [LinkedIn](https://www.linkedin.com/in/luciano-conceição-de-brito)
+
 
 
