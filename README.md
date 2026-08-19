@@ -8,7 +8,7 @@
 
 #### 🧩 Descrição do Problema de Negócio
 
-"Acabei de receber uma reclamação do time de vendas dizendo que estamos perdendo
+"Acabei de receber uma reclamação do time de vendas dizendo que estamos perdendo,
 pedidos por falta de estoque. Quero saber quais produtos estão com estoque crítico mas
 continuam aparecendo como disponíveis para o cliente, "Tenho 3 lojas e quero entender qual performa melhor. Não é só faturamento — quero ver prazo de entrega e base de clientes também. Isso vai ajudar a decidir onde abrir a próxima loja."
 
